@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/hank.css">
-    <title>Document</title>
-</head>
-<body>
-    
-    <!-- 
-    You must have: 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Contact Card</title>
+  </head>
+  <body>
+    <!--
+    You must have:
     - a profile picture image
     - Name
     - Title
@@ -21,8 +20,49 @@
     - You should be able to tell use why you made the changes
 
     -->
-    
-
-
-</body>
+    <main class="container">
+      <article class="profile-card">
+        <section class="profile-picture">
+          <picture>
+            <source
+              srcset="https://placehold.co/150"
+              media="(max-width: 500px)"
+            />
+            <img src="https://placehold.co/200" alt="User profile picture" />
+          </picture>
+        </section>
+        <section class="profile-details">
+          <div class="contact">
+            <div class="name">
+              <h2>Qubit</h2>
+              <p class="job-title">Roughly 80% Mad Scientist</p>
+            </div>
+            <address>
+              42 Wallaby Way<br />
+              Sydney, Australia
+            </address>
+            <p>(02) 5550 1234</p>
+          </div>
+          <div class="company">
+            <h3>Pump & Dump, LLC</h3>
+            <blockquote class="slogan">Going for broke since 2008</blockquote>
+          </div>
+        </section>
+      </article>
+      <aside class="image-credits">
+        <p>image credits</p>
+        <ul>
+          <li>
+            background:
+            <a
+              href="https://www.freepik.com/free-vector/circuit-board-seamless-pattern_4546129.htm"
+              >macrovector_official @ Freepik</a
+            >
+          </li>
+        </ul>
+      </aside>
+    </main>
+  </body>
 </html>
+
+<!-- https://www.acma.gov.au/phone-numbers-use-tv-shows-films-and-creative-works -->
