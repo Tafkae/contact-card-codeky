@@ -1,5 +1,5 @@
 @import url("reset.css");
-@import url("https://fonts.googleapis.com/css2?family=Cute+Font&family=Iceland&family=Revalia&family=Rubik+Glitch&family=Syne+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Cute+Font&family=Iceland&family=Revalia&family=Rubik+Glitch&family=Syne+Mono&display=swap");
 
 /* COLOR SCHEME */
 
@@ -11,6 +11,7 @@
 }
 
 /* FONTS */
+
 /* .rubik-glitch-regular {
   font-family: "Rubik Glitch", system-ui;
   font-weight: 400;
@@ -38,6 +39,11 @@
 } */
 
 /* MOBILE: width < 500px */
+
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: rgb(8, 37, 25);
+}
 
 main.container {
   height: 100vh;
@@ -94,7 +100,6 @@ source {
 
 .profile-picture img {
   border-radius: 50%;
-  /* box-shadow: var(--shadow); */
 }
 
 .profile-details {
@@ -111,16 +116,7 @@ source {
   gap: 3px;
   text-align: center;
 
-  padding: 5px;
-}
-
-.contact {
-  background: #ff7dc3;
-  padding: 3px;
-}
-
-.company {
-  background: rgb(149, 198, 241);
+  padding: 10px;
 }
 
 .profile-details > div {
@@ -129,18 +125,9 @@ source {
 
 .name {
   background: rgba(255, 255, 186, 0.8);
-  padding: 3px 0 5px;
 }
 
-.job-title {
-  font-family: "Iceland", sans-serif;
-  font-size: 1.3em;
-  font-style: italic;
-  line-height: 1em;
-  padding-bottom: 6px;
-}
-
-h2 {
+.name h2 {
   font-family: "Syne Mono", monospace;
   font-size: 3em;
   font-weight: 400;
@@ -148,14 +135,42 @@ h2 {
   line-height: 1.5em;
 }
 
-h3 {
+.job-title {
+  font-family: "Revalia", sans-serif;
+  font-size: 1em;
+  line-height: 1em;
+  padding-bottom: 6px;
+}
+
+.contact {
+  background: rgba(255, 255, 139, 0.8);
+  padding: 3px;
+}
+
+.contact address {
+  font-style: normal;
+}
+
+.company {
+  background: rgba(255, 255, 101, 0.8);
+  justify-content: center;
+  gap: 8px;
+}
+
+.company h3 {
+  font-family: "Revalia", sans-serif;
   font-size: 1.2em;
   font-weight: normal;
+
+}
+
+.company .slogan {
   font-style: italic;
+  line-height: 1.1em;
 }
 
 .image-credits {
-  display: none;
+  /* display: none; */
   grid-column: 1 / -1;
   grid-row: -2 / -1;
   justify-self: center;
@@ -170,7 +185,7 @@ h3 {
   margin-left: 1.5em;
 }
 
-/* LARGE MOBILE/TABLET: width >= 500px */
+/* LARGE MOBILE/TABLET: width >= 500px -----------------------*/
 @media screen and (min-width: 500px) {
   main.container {
     grid-template-rows: 1fr 1fr 1fr;
@@ -181,7 +196,7 @@ h3 {
     grid:
       "name company" 1fr
       "contact company" auto
-      / 1fr 1fr;
+      / 1fr minmax(45%, max-content);
     gap: 8px;
   }
 
@@ -195,10 +210,11 @@ h3 {
 
   .company {
     grid-area: company;
+    gap: 16px;
   }
 }
 
-/* LARGE TABLET/DESKTOP: width >= 768px */
+/* LARGE TABLET/DESKTOP: width >= 768px ----------------------*/
 @media screen and (min-width: 768px) {
   main.container {
     grid-template-columns: auto minmax(min-content, 90ch) auto;
@@ -207,9 +223,6 @@ h3 {
   .profile-card {
     flex-flow: row nowrap;
     justify-content: space-between;
-  }
-
-  .profile-picture img {
   }
 
   .profile-details {
@@ -227,5 +240,10 @@ h3 {
 
   .company {
     flex: 1 1 40%;
+    gap: 8px;
+  }
+
+  .company .slogan {
+    padding: 0;
   }
 }
