@@ -7,6 +7,7 @@
     <title>Contact Card</title>
   </head>
   <body>
+
     <!--
     You must have:
     - a profile picture image
@@ -25,23 +26,25 @@
         <section class="profile-picture">
           <picture>
             <source
-              srcset="https://placehold.co/150"
+              srcset="./images/Qubit-150.png"
               media="(max-width: 500px)"
+            /><source
+              srcset="./images/Qubit-200.png"
+              media="(max-width: 768px)"
             />
-            <img src="https://placehold.co/200" alt="User profile picture" />
+            <img src="./images/Qubit-300.png" alt="User profile picture" />
           </picture>
         </section>
         <section class="profile-details">
+          <div class="name">
+            <h2>Qubit</h2>
+            <p class="job-title">Roughly 80% Mad Scientist</p>
+          </div>
           <div class="contact">
-            <div class="name">
-              <h2>Qubit</h2>
-              <p class="job-title">Roughly 80% Mad Scientist</p>
-            </div>
             <address>
-              42 Wallaby Way<br />
-              Sydney, Australia
+              <p>qubit@paradigm.super</p>
+              <p>(02) 5550 1234</p>
             </address>
-            <p>(02) 5550 1234</p>
           </div>
           <div class="company">
             <h3>Pump & Dump, LLC</h3>
@@ -58,6 +61,13 @@
               href="https://www.freepik.com/free-vector/circuit-board-seamless-pattern_4546129.htm"
               >macrovector_official @ Freepik</a
             >
+          </li>
+          <li>
+            profile image:
+            <a href="https://www.comics.org/issue/669793/"
+              ><em>Irredeemable</em> issue 5</a
+            >, Boom! Comics
+            <p>cover art by Gene Ha (pencils & inks), Art Lyon (colors)</p>
           </li>
         </ul>
       </aside>

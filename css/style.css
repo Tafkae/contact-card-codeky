@@ -1,14 +1,56 @@
 @import url("reset.css");
+@import url("https://fonts.googleapis.com/css2?family=Cute+Font&family=Iceland&family=Revalia&family=Rubik+Glitch&family=Syne+Mono&display=swap");
+
+/* COLOR SCHEME */
+
+:root {
+  --bg-color: #008000;
+  --shadow-color: rgba(0, 126, 126, 0.7);
+  --shadow: 2px 2px 4px var(--shadow-color), -2px 2px 4px var(--shadow-color),
+    -2px -2px 4px var(--shadow-color), 2px -2px 4px var(--shadow-color);
+}
+
+/* FONTS */
+/* .rubik-glitch-regular {
+  font-family: "Rubik Glitch", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+.iceland-regular {
+  font-family: "Iceland", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.cute-font-regular {
+  font-family: "Cute Font", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.syne-mono-regular {
+  font-family: "Syne Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+.revalia-regular {
+  font-family: "Revalia", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+} */
 
 /* MOBILE: width < 500px */
 
 main.container {
   height: 100vh;
+  width: 100vw;
+  overflow: scroll;
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
-  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-columns: auto minmax(min-content, 90%) auto;
+  grid-template-rows: 1fr 3fr 1fr;
+  gap: 10px;
+  justify-content: stretch;
   justify-items: stretch;
-  align-items: stretch;
+  align-content: stretch;
+  align-items: center;
 }
 
 .profile-card {
@@ -16,25 +58,23 @@ main.container {
   grid-column: 2 / -2;
   grid-row: 2 / -2;
 
-  /* define child grid */
-  display: grid;
-  grid-template-rows: repeat(2, min-content);
-  grid-template-columns: 1fr 1fr;
-  row-gap: 8px;
-  column-gap: 20px;
-  justify-content: space-between;
+  /* define child flex */
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 15px;
+  align-items: stretch;
 
   border-radius: 12px;
   padding: 10px;
-  background: linear-gradient(25deg, rgba(0, 0, 0, 0), rgba(6, 49, 16, 0.75)),
-    url("../images/3920-green.svg") repeat center/300px;
-  background-blend-mode: hard-light, normal;
+  background: linear-gradient(205deg, rgba(0, 0, 0, 0), rgba(6, 49, 16, 0.6)),
+    url("../images/3920-green.svg") repeat center/500px;
+  background-blend-mode: multiply, normal;
   background-color: #008000;
+  box-shadow: 6px 6px 4px #aaa;
 }
 
 .profile-card * {
   border-radius: 8px;
-  /* border: 1px dashed #aaa; */
 }
 
 source {
@@ -42,47 +82,49 @@ source {
 }
 
 .profile-card > section {
-  grid-column: 1 / -1;
   padding: 10px;
-  background: rgb(235, 184, 108);
+  background: rgba(0, 221, 255, 0.4);
+  backdrop-filter: blur(1.5px);
+  box-shadow: 3px 3px 2px var(--shadow-color);
 }
 
 .profile-picture {
-  padding: 10px;
-  justify-self: center;
+  align-self: center;
 }
 
 .profile-picture img {
-  margin: auto;
   border-radius: 50%;
+  /* box-shadow: var(--shadow); */
 }
 
 .profile-details {
   display: flex;
   flex-flow: column nowrap;
   gap: 5px;
+  justify-content: space-around;
 }
 
-.contact,
-.company {
+.profile-details > * {
   display: flex;
   flex-flow: column nowrap;
+  justify-content: center;
   gap: 3px;
+  text-align: center;
 
   padding: 5px;
 }
 
 .contact {
   background: #ff7dc3;
+  padding: 3px;
 }
 
 .company {
   background: rgb(149, 198, 241);
 }
 
-.contact > *,
-.company > * {
-  text-align: center;
+.profile-details > div {
+  box-shadow: 2px 2px 1px var(--shadow-color);
 }
 
 .name {
@@ -91,12 +133,19 @@ source {
 }
 
 .job-title {
+  font-family: "Iceland", sans-serif;
+  font-size: 1.3em;
   font-style: italic;
+  line-height: 1em;
+  padding-bottom: 6px;
 }
 
 h2 {
-  font-size: 1.5em;
-  font-weight: normal;
+  font-family: "Syne Mono", monospace;
+  font-size: 3em;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.5em;
 }
 
 h3 {
@@ -106,20 +155,77 @@ h3 {
 }
 
 .image-credits {
+  display: none;
   grid-column: 1 / -1;
   grid-row: -2 / -1;
   justify-self: center;
   align-self: end;
-  margin-bottom: 4px;
+  margin: 8px;
 
   font-size: 0.7em;
   color: #aaa;
 }
 
+.image-credits li p {
+  margin-left: 1.5em;
+}
+
 /* LARGE MOBILE/TABLET: width >= 500px */
 @media screen and (min-width: 500px) {
+  main.container {
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+
+  .profile-details {
+    display: grid;
+    grid:
+      "name company" 1fr
+      "contact company" auto
+      / 1fr 1fr;
+    gap: 8px;
+  }
+
+  .name {
+    grid-area: name;
+  }
+
+  .contact {
+    grid-area: contact;
+  }
+
+  .company {
+    grid-area: company;
+  }
 }
 
 /* LARGE TABLET/DESKTOP: width >= 768px */
 @media screen and (min-width: 768px) {
+  main.container {
+    grid-template-columns: auto minmax(min-content, 90ch) auto;
+  }
+
+  .profile-card {
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+
+  .profile-picture img {
+  }
+
+  .profile-details {
+    flex: 1 1 50%;
+
+    display: flex;
+    justify-content: initial;
+    align-items: stretch;
+  }
+
+  .name,
+  .contact {
+    flex: 1 2 25%;
+  }
+
+  .company {
+    flex: 1 1 40%;
+  }
 }
